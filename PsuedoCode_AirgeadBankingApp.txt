@@ -1,0 +1,176 @@
+/*
+ * PsuedoCode_AirgeadBankingApp.txt
+ *
+ *  Date: 02/06/2021
+ *  Author: Andrew Alves
+ */
+
+/*
+
+**** Include standard libraries / libraries of interest ****
+
+class AirgeadBankingApp{
+
+    public: 
+        AirgeadBankingApp(void){           //constructor function for the AirgeadBankingApp
+
+            private:
+                Here we will declare class variables to store calculations and user input
+                Decided to make it private because I would only like my class to be able to modify these values
+
+                //Input data
+                double m_initialInvestment = 0.00;
+                double m_monthlyDeposit    = 0.00;
+                double m_annualInterest    = 0.00;
+                int    m_numYears          = 0;
+
+                //Calculated data - planning to overwrite these variables with the with and without additional monthly deposits values when needed 
+                double m_year[5]                  = {1, 2, 3, 4, 5};
+                double m_yearEndBalance[5]        = {0.00};
+                double m_yearEndEarnedInterest[5] = {0.00};
+        }  
+
+        void inputMainMenu(){
+            Here we will print the main menu which will be formatted as such:
+
+            **********************************
+            *********** Data Input ***********
+            Inital Investment Amount : $
+                    Monthly Deposit : $
+                    Annual Interest : %
+                    Number of Years : 
+            
+            Press any key to coninue...
+
+            To accomplish this we will need to first print the first 3 lines...
+            **********************************
+            *********** Data Input ***********
+            Inital Investment Amount : _
+
+            Here we will wait for user input which should be on the same line which the data is referencing.
+            We will do that for each line until all the fields are filled out, 
+            then we print the press any key to continue message so the user can review the data they input before continuing
+
+            **********************************
+            *********** Data Input ***********
+            Inital Investment Amount : $1.00
+                    Monthly Deposit : $50.00
+                    Annual Interest : %5
+                    Number of Years : 5
+            
+            Press any key to coninue...
+
+            Here we will save those input values into the class variables along the way
+            initialInvestment = 1.00;
+            monthlyDeposit    = 50.00;
+            annualInterest    = 5.00;
+            numYears          = 5;
+
+        }
+
+        void printYearEndBalanceReports(){
+                Here we will print two reports one after the other.
+                we will first need to calculate the data for the first report.
+
+                AirgeadBankingApp::calculateReportNoDeposit(); --> update the class variables with data not using montly deposits
+
+                the first report will be the report without additional monthly deposits as shown below:
+
+                62 spaces across the whole report
+                10 spaces for the Year
+                22 spaces for the Year End Balance 
+                28 spaces for the Year End Earned Interest
+
+                These spaces will be important because we will want to have our data centered in their respective columns.
+                Centered in this case means all the decimal points for the data is lined up
+                We will look at the length of our data and print it padded with spaces to the left and right of the data to fill out the needed space.
+
+                   Balance and Interest Without Additional Monthly Deposits
+                ==============================================================
+                   Year   |   Year End Balance   |   Year End Earned Interest 
+                --------------------------------------------------------------
+                     1             $1.05                      $0.05            
+                     2             $1.10                      $0.05            
+                     3             $1.16                      $0.06            
+                     4             $1.22                      $0.06            
+                     5             $1.28                      $0.06            
+
+
+                Then we will want to recalculate using monthly deposits
+
+                AirgeadBankingApp::calculateReportWithDeposit(); --> update the class variables with data using montly deposits
+                Then repopulate the report with different information centering the decimal points accordingly.
+
+                     Balance and Interest With Additional Monthly Deposits
+                ==============================================================
+                   Year   |   Year End Balance   |   Year End Earned Interest 
+                --------------------------------------------------------------
+                     1           $617.55                     $16.55            
+                     2          $1265.65                     $48.10            
+                     3          $1946.90                     $81.25            
+                     4          $2663.01                    $116.11            
+                     5          $3415.76                    $152.75  
+        }
+
+    private:
+        make these functions private because they will only be needed to when making the reporting, and isn't needed by the user of this class.
+
+        void calculateReportNoDeposit(){
+            Interest: Money earned based on the “annual interest” rate input by the user. The
+                        interest based on an opening amount of $1 and a deposited amount of $50 with an
+                        interest rate of 5% compounded monthly is:
+                        (Opening Amount + Deposited Amount) * ((Interest Rate/100)/12)
+                        OR
+                        (1 + 50) * ((5/100)/12)
+                        Note: Dividing by 100 converts the interest rate percentage to a decimal.
+                        Note: 12 is the number of months in a year. Dividing the yearly amount by twelve gives
+                        monthly compounded interest.
+        }
+
+        void calculateReportWithDeposit(){
+            Interest: Money earned based on the “annual interest” rate input by the user. The
+                        interest based on an opening amount of $1 and a deposited amount of $50 with an
+                        interest rate of 5% compounded monthly is:
+                        (Opening Amount + Deposited Amount) * ((Interest Rate/100)/12)
+                        OR
+                        (1 + 50) * ((5/100)/12)
+                        Note: Dividing by 100 converts the interest rate percentage to a decimal.
+                        Note: 12 is the number of months in a year. Dividing the yearly amount by twelve gives
+                        monthly compounded interest.
+        }
+
+}
+
+
+int main(){
+    Here is the main function.
+
+    create the class instance normally:
+        AirgeadBankingApp bankingApp = new AirgeadBankingApp;
+
+    create the class from the Standards document:
+        auto bankingClass = std::make_shared<AirgeadBankingApp>();
+
+    while(1){
+
+        AirgeadBankingApp::inputMainMenu();
+        AirgeadBankingApp::printYearEndBalanceReports();
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
